@@ -1,0 +1,84 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<students>
+    <student>
+        <picture>path/to/image1.jpg</picture>
+        <name>Patrick De Jesus</name>
+        <course>BSIT</course>
+        <year_level_section>3AG2</year_level_section>
+        <adviser>Mr. Ramon Dela Cruz</adviser>
+        <school_year>2025-2026</school_year>
+    </student>
+    <student>
+        <picture>path/to/image2.jpg</picture>
+        <name>Maria Santos</name>
+        <course>BSIT</course>
+        <year_level_section>3bg2</year_level_section>
+        <adviser>Mr. Ramon Dela Cruz</adviser>
+        <school_year>2025-2026</school_year>
+    </student>
+    <student>
+        <picture>path/to/image3.jpg</picture>
+        <name>Carlos Mendoza</name>
+        <course>BSIT</course>
+        <year_level_section>3bg2</year_level_section>
+        <adviser>Mr. Ramon Dela Cruz</adviser>
+        <school_year>2025-2026</school_year>
+    </student>
+    <student>
+        <picture>path/to/image4.jpg</picture>
+        <name>Ana Reyes</name>
+        <course>BSIT</course>
+        <year_level_section>3bg2</year_level_section>
+        <adviser>Mr. Ramon Dela Cruz</adviser>
+        <school_year>2025-2026</school_year>
+    </student>
+    <student>
+        <picture>path/to/image5.jpg</picture>
+        <name>Rafael Gomez</name>
+        <course>BSIT</course>
+        <year_level_section>3bg2</year_level_section>
+        <adviser>Mr. Ramon Dela Cruz</adviser>
+        <school_year>2025-2026</school_year>
+    </student>
+    <student>
+        <picture>path/to/image6.jpg</picture>
+        <name>Isabel Cruz</name>
+        <course>BSIT</course>
+        <year_level_section>3bg2</year_level_section>
+        <adviser>Mr. Ramon Dela Cruz</adviser>
+        <school_year>2025-2026</school_year>
+    </student>
+    <student>
+        <picture>path/to/image7.jpg</picture>
+        <name>Eduardo Fernandez</name>
+        <course>BSIT</course>
+        <year_level_section>3bg2</year_level_section>
+        <adviser>Mr. Ramon Dela Cruz</adviser>
+        <school_year>2025-2026</school_year>
+    </student>
+    <student>
+        <picture>path/to/image8.jpg</picture>
+        <name>Jessica Lopez</name>
+        <course>BSIT</course>
+        <year_level_section>3bg2</year_level_section>
+        <adviser>Mr. Ramon Dela Cruz</adviser>
+        <school_year>2025-2026</school_year>
+    </student>
+    <student>
+        <picture>path/to/image9.jpg</picture>
+        <name>Gabriel Torres</name>
+        <course>BSIT</course>
+        <year_level_section>3bg2</year_level_section>
+        <adviser>Mr. Ramon Dela Cruz</adviser>
+        <school_year>2025-2026</school_year>
+    </student>
+    <student>
+        <picture>path/to/image10.jpg</picture>
+        <name>Camila Hernandez</name>
+        <course>BSIT</course>
+        <year_level_section>3bg2</year_level_section>
+        <adviser>Mr. Ramon Dela Cruz</adviser>
+        <school_year>2025-2026</school_year>
+    </student>
+</students>
