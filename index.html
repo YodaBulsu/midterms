@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Users</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .student-card {
+            border: 3px solid black;
+            padding: 10px;
+            margin: 10px;
+            width: 250px;
+            text-align: left;
+        }
+        img {
+            width: 50px;
+            height: 50px;
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <h1>ABC Colleges</h1>
+    <h2>Library Users</h2>
+    <div class="container" id="students"></div>
+
+    <script>
+        fetch('Dejesus_Patrick.xml')
+            .then(response => response.text())
+            .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
+            .then(data => {
+                let students = data.getElementsByTagName("student");
+                let container = document.getElementById("students");
+                
+                for (let i = 0; i < students.length; i++) {
+                    let picture = students[i].getElementsByTagName("picture")[0].textContent;
+                    let name = students[i].getElementsByTagName("name")[0].textContent;
+                    let course = students[i].getElementsByTagName("course")[0].textContent;
+                    let year = students[i].getElementsByTagName("year_level_section")[0].textContent;
+                    let adviser = students[i].getElementsByTagName("adviser")[0].textContent;
+                    let schoolYear = students[i].getElementsByTagName("school_year")[0].textContent;
+                    
+                    let studentCard = document.createElement("div");
+                    studentCard.className = "student-card";
+                    studentCard.innerHTML = `
+                        <img src="${picture}" alt="Student Picture">
+                        <p><strong>Name:</strong> ${name}</p>
+                        <p><strong>Course:</strong> ${course}</p>
+                        <p><strong>Year Level / Section:</strong> ${year}</p>
+                        <p><strong>Adviser:</strong> ${adviser}</p>
+                        <p><strong>School Year:</strong> ${schoolYear}</p>
+                    `;
+                    
+                    container.appendChild(studentCard);
+                }
+            });
+    </script>
+</body>
+</html>
