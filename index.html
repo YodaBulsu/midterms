@@ -3,67 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Library Users</title>
+    <title>ABC Colleges Library Users</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            font-size: 12px;
             text-align: center;
         }
         .container {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
+            gap: 15px;
         }
-        .student-card {
-            border: 3px solid black;
+        .card {
+            border: 1px solid #ccc;
             padding: 10px;
-            margin: 10px;
             width: 250px;
             text-align: left;
+            background: #f9f9f9;
         }
-        img {
+        .card img {
             width: 50px;
             height: 50px;
-            float: right;
+            border-radius: 50%;
+        }
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
     </style>
 </head>
 <body>
     <h1>ABC Colleges</h1>
     <h2>Library Users</h2>
-    <div class="container" id="students"></div>
-
+    <div class="container" id="library-users"></div>
+    
     <script>
-        fetch('Dejesus_Patrick.xml')
-            .then(response => response.text())
-            .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
-            .then(data => {
-                let students = data.getElementsByTagName("student");
-                let container = document.getElementById("students");
-                
-                for (let i = 0; i < students.length; i++) {
-                    let picture = students[i].getElementsByTagName("picture")[0].textContent;
-                    let name = students[i].getElementsByTagName("name")[0].textContent;
-                    let course = students[i].getElementsByTagName("course")[0].textContent;
-                    let year = students[i].getElementsByTagName("year_level_section")[0].textContent;
-                    let adviser = students[i].getElementsByTagName("adviser")[0].textContent;
-                    let schoolYear = students[i].getElementsByTagName("school_year")[0].textContent;
-                    
-                    let studentCard = document.createElement("div");
-                    studentCard.className = "student-card";
-                    studentCard.innerHTML = `
-                        <img src="${picture}" alt="Student Picture">
-                        <p><strong>Name:</strong> ${name}</p>
-                        <p><strong>Course:</strong> ${course}</p>
-                        <p><strong>Year Level / Section:</strong> ${year}</p>
-                        <p><strong>Adviser:</strong> ${adviser}</p>
-                        <p><strong>School Year:</strong> ${schoolYear}</p>
-                    `;
-                    
-                    container.appendChild(studentCard);
-                }
-            });
+        const usersXML = `
+        <users>
+            <user>
+                <name>Juan Dela Cruz</name>
+                <course>BSIT</course>
+                <year>3</year>
+                <section>3g2</section>
+                <advisor>Mr. Ramon Dela Cruz</advisor>
+                <schoolYear>2025-2026</schoolYear>
+                <photo>https://via.placeholder.com/50</photo>
+            </user>
+        </users>`;
+        
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(usersXML, "text/xml");
+        const user = xmlDoc.getElementsByTagName("user")[0];
+        
+        const userCard = document.createElement("div");
+        userCard.classList.add("card");
+        userCard.innerHTML = `
+            <div class="card-header">
+                <img src="${user.getElementsByTagName("photo")[0].textContent}" alt="User Photo">
+                <strong>${user.getElementsByTagName("name")[0].textContent}</strong>
+            </div>
+            <p><strong>Course:</strong> ${user.getElementsByTagName("course")[0].textContent}</p>
+            <p><strong>Year Level / Section:</strong> ${user.getElementsByTagName("year")[0].textContent}${user.getElementsByTagName("section")[0].textContent}</p>
+            <p><strong>Adviser:</strong> ${user.getElementsByTagName("advisor")[0].textContent}</p>
+            <p><strong>School Year:</strong> ${user.getElementsByTagName("schoolYear")[0].textContent}</p>
+        `;
+        
+        for (let i = 0; i < 10; i++) {
+            document.getElementById("library-users").appendChild(userCard.cloneNode(true));
+        }
     </script>
 </body>
 </html>
